@@ -6,11 +6,11 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 url_ytgaming = "https://www.youtube.com/gaming"
-url_ytgaming_toplive = url_ytgaming + "/games"
-url_ytgaming_trending = url_ytgaming + "/trending"
+url_trending_live = url_ytgaming + "/games"
+url_trending_video = url_ytgaming + "/trending"
 
 driver = webdriver.Firefox()
-driver.get(url_ytgaming_toplive)
+driver.get(url_trending_live)
 
 print("Beres load page: {}".format(datetime.now()))
 
