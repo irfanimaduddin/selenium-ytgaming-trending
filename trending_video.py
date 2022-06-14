@@ -12,15 +12,13 @@ url_trending_video = url_ytgaming + "/trending"
 driver = webdriver.Firefox()
 driver.get(url_trending_video)
 
-print("Beres load page: {}".format(datetime.now()))
-
 i = 0
 # Scroll page to get all game cards
 while i<10:
     driver.execute_script("window.scrollTo(0, window.scrollMaxY)")
     time.sleep(3)
     i += 1
-    print("Beres scroll ke-{}: {}".format(i, datetime.now()))
+    print("Scrolling down the page")
 
 resp_channel_names = driver.find_elements(by=By.XPATH, value='//a[@class="yt-simple-endpoint style-scope yt-formatted-string"]')
 resp_video_titles = driver.find_elements(by=By.XPATH, value='//a[@id="video-title" and @class="yt-simple-endpoint style-scope ytd-grid-video-renderer"]')
@@ -49,6 +47,6 @@ for i, (column1, column2, column3) in enumerate(zip(resp_channel_names, resp_vid
         break
     
 df = pd.DataFrame(new_array)
-df.to_csv('./output/output.csv', index=False)
+df.to_csv('./output/trending_video.csv', index=False)
 
 driver.close()
