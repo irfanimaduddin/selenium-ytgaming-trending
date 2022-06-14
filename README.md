@@ -6,3 +6,5 @@ A program to scrape trending games and videos on Youtube Gaming. There are two p
 
 To run the program,
 `python main.py`
+
+The output will be stored in two csv files in the `output` directory.
